@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Application
+TryExec=st
+Exec=st
+Icon=org.gnome.Terminal
+Terminal=false
+Categories=System;TerminalEmulator;
+
+Name=st
+GenericName=Terminal
+Comment=Suckless terminal emulator
+StartupWMClass=st
+Actions=New;
+
+[Desktop Action New]
+Name=New Terminal
+Exec=st
