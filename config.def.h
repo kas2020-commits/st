@@ -5,7 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+
+static char *font = "DejaVu Sans Mono:style=Regular:pixelsize=20:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -42,8 +43,8 @@ static unsigned int tripleclicktimeout = 600;
 int allowaltscreen = 1;
 
 /* frames per second st should at maximum draw to the screen */
-static unsigned int xfps = 120;
-static unsigned int actionfps = 30;
+static unsigned int xfps = 144;
+static unsigned int actionfps = 144;
 
 /*
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
@@ -133,7 +134,7 @@ unsigned int defaultunderline = 7;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 4;
 
 /*
  * Default columns and rows numbers
