@@ -87,7 +87,7 @@ unsigned int tabspaces = 8;
 static const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#000000", /* black   */
+  [0] = "#101010", /* black   */
   [1] = "#cc342b", /* red     */
   [2] = "#00a03e", /* green   */
   [3] = "#fba922", /* yellow  */
@@ -97,7 +97,7 @@ static const char *colorname[] = {
   [7] = "#c5c8c6", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#969896", /* black   */
+  [8]  = "#404040", /* black   */
   [9]  = "#cc342b", /* red     */
   [10] = "#00a03e", /* green   */
   [11] = "#fba922", /* yellow  */
@@ -183,8 +183,10 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i =  1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i =  1} },
+	{ MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
         { TERMMOD,              XK_Return,      newterm,        {.i =  0} },
