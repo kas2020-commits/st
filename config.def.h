@@ -5,8 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-
-static char *font = "DejaVu Sans Mono:style=Regular:pixelsize=20:antialias=true:autohint=true";
+static char *font = "Fira Code Medium:style=Medium:pixelsize=19:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -86,30 +85,29 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 
-  /* 8 normal colors */
-  [0] = "#101010", /* black   */
-  [1] = "#cc342b", /* red     */
-  [2] = "#00a03e", /* green   */
-  [3] = "#fba922", /* yellow  */
-  [4] = "#3971ed", /* blue    */
-  [5] = "#a36ac7", /* magenta */
-  [6] = "#0bbcbc", /* cyan    */
-  [7] = "#c5c8c6", /* white   */
+        /* 8 Normal Colors */
+        [0]  = "#282c34",
+        [1]  = "#FF5555",
+        [2]  = "#50FA7B",
+        [3]  = "#F1FA8C",
+        [4]  = "#BD93F9",
+        [5]  = "#FF79C6",
+        [6]  = "#8BE9FD",
+        [7]  = "#BFBFBF",
 
-  /* 8 bright colors */
-  [8]  = "#404040", /* black   */
-  [9]  = "#cc342b", /* red     */
-  [10] = "#00a03e", /* green   */
-  [11] = "#fba922", /* yellow  */
-  [12] = "#3971ed", /* blue    */
-  [13] = "#a36ac7", /* magenta */
-  [14] = "#0bbcbc", /* cyan    */
-  [15] = "#ffffff", /* white   */
+        /* 8 Bright Colors */
+        [8]  = "#484848",
+        [9]  = "#FF6E67",
+        [10] = "#5AF78E",
+        [11] = "#F4F99D",
+        [12] = "#CAA9FA",
+        [13] = "#FF92D0",
+        [14] = "#9AEDFE",
+        [15] = "#E6E6E6",
 
-  /* special colors */
-  //[256] = "#282a36", /* background */
-  [256] = "#222222", /* background */
-  [257] = "#f8f8f2", /* foreground */
+        /* Special Colors */
+        [256] = "#282A36",
+        [257] = "#eeeeee",
 };
 
 /*
@@ -180,8 +178,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
+	{ TERMMOD,              XK_c,           clipcopy,       {.i =  0} },
+	{ TERMMOD,              XK_v,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i =  1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i =  1} },
