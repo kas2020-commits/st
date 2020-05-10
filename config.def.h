@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fira Code Medium:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Fira Code Medium:pixelsize=19:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -85,26 +85,47 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 
-		/* nord */
-        [0]  = "#3B4252",
-        [1]  = "#BF616A",
-        [2]  = "#A3BE8C",
-        [3]  = "#EBCB8B",
-        [4]  = "#81A1C1",
-        [5]  = "#B48EAD",
-        [6]  = "#88C0D0",
-        [7]  = "#E5E9F0",
-        [8]  = "#4C566A",
-        [9]  = "#BF616A",
-        [10] = "#A3BE8C",
-        [11] = "#EBCB8B",
-        [12] = "#81A1C1",
-        [13] = "#B48EAD",
-        [14] = "#8FBCBB",
-        [15] = "#ECEFF4",
-		[256] = "#2E3440",
-		[257] = "#D8DEE9",
-		[258] = "#D8DEE9",
+		/* /1* nord *1/ */
+        /* [0]  = "#3B4252", */
+        /* [1]  = "#BF616A", */
+        /* [2]  = "#A3BE8C", */
+        /* [3]  = "#EBCB8B", */
+        /* [4]  = "#81A1C1", */
+        /* [5]  = "#B48EAD", */
+        /* [6]  = "#88C0D0", */
+        /* [7]  = "#E5E9F0", */
+        /* [8]  = "#4C566A", */
+        /* [9]  = "#BF616A", */
+        /* [10] = "#A3BE8C", */
+        /* [11] = "#EBCB8B", */
+        /* [12] = "#81A1C1", */
+        /* [13] = "#B48EAD", */
+        /* [14] = "#8FBCBB", */
+        /* [15] = "#ECEFF4", */
+		/* [256] = "#2E3440", */
+		/* [257] = "#D8DEE9", */
+		/* [258] = "#D8DEE9", */
+
+		/* /1* solarized *1/ */
+        /* [0]  = "#002b36", */
+        /* [1]  = "#dc322f", */
+        /* [2]  = "#859900", */
+        /* [3]  = "#b58900", */
+        /* [4]  = "#268bd2", */
+        /* [5]  = "#6c71c4", */
+        /* [6]  = "#2aa198", */
+        /* [7]  = "#93a1a1", */
+        /* [8]  = "#657b83", */
+        /* [9]  = "#dc322f", */
+        /* [10] = "#859900", */
+        /* [11] = "#b58900", */
+        /* [12] = "#268bd2", */
+        /* [13] = "#6c71c4", */
+        /* [14] = "#2aa198", */
+        /* [15] = "#fdf6e3", */
+		/* [256] = "#002b36", */
+		/* [257] = "#93a1a1", */
+		/* [258] = "#93a1a1", */
 
 		/* Gruvbox */
         /* [0]  = "#282828", */
@@ -126,6 +147,26 @@ static const char *colorname[] = {
 		/* [256] = "#282828", */
 		/* [257] = "#ebdbb2", */
 		/* [258] = "#c5c8c6", */
+
+  /* Google Dark */
+  [0] = "#1d1f21", /* black   */
+  [1] = "#cc342b", /* red     */
+  [2] = "#198844", /* green   */
+  [3] = "#fba922", /* yellow  */
+  [4] = "#3971ed", /* blue    */
+  [5] = "#a36ac7", /* magenta */
+  [6] = "#3971ed", /* cyan    */
+  [7] = "#c5c8c6", /* white   */
+  [8]  = "#333333", /* black   */
+  [9]  = "#cc342b", /* red     */
+  [10] = "#198844", /* green   */
+  [11] = "#fba922", /* yellow  */
+  [12] = "#3971ed", /* blue    */
+  [13] = "#a36ac7", /* magenta */
+  [14] = "#3971ed", /* cyan    */
+  [15] = "#ffffff", /* white   */
+  [256] = "#1d1f21", /* background */
+  [257] = "#c5c8c6", /* foreground */
 
 		/* Dracula */
         /* [0]  = "#282c34", */
@@ -155,8 +196,8 @@ static const char *colorname[] = {
  */
 unsigned int defaultbg = 256;
 unsigned int defaultfg = 257;
-static unsigned int defaultcs = 258;
-static unsigned int defaultrcs = 258;
+static unsigned int defaultcs = 7;
+static unsigned int defaultrcs = 7;
 
 /*
  * Colors used, when the specific fg == defaultfg. So in reverse mode this
