@@ -2,7 +2,7 @@
 Type=Application
 TryExec=st
 Exec=st
-Icon=org.gnome.Terminal
+Icon=utilities-terminal
 Terminal=false
 Categories=System;TerminalEmulator;
 
