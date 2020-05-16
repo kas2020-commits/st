@@ -5,19 +5,21 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fira Code Medium:pixelsize=19:antialias=true:autohint=true";
+static char *font = "Fira Code Medium:pixelsize=18:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
- * 2: utmp option
+ * 2: scroll and/or utmp
  * 3: SHELL environment variable
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
 static char *shell = "/bin/sh";
 char *utmp = NULL;
+/* scroll program: to enable use a string like "scroll" */
+char *scroll = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
 /* identification sequence returned in DA and DECID */
@@ -30,9 +32,9 @@ static float chscale = 1.0;
 /*
  * word delimiter string
  *
- * More advanced example: " `'\"()[]{}"
+ * More advanced example: L" `'\"()[]{}"
  */
-char *worddelimiters = " ";
+wchar_t *worddelimiters = L" ";
 
 /* selection timeouts (in milliseconds) */
 static unsigned int doubleclicktimeout = 300;
@@ -63,7 +65,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st";
+char *termname = "st-256color";
 
 /*
  * spaces per tab
@@ -85,124 +87,146 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 
-		/* /1* nord *1/ */
-        /* [0]  = "#3B4252", */
-        /* [1]  = "#BF616A", */
-        /* [2]  = "#A3BE8C", */
-        /* [3]  = "#EBCB8B", */
-        /* [4]  = "#81A1C1", */
-        /* [5]  = "#B48EAD", */
-        /* [6]  = "#88C0D0", */
-        /* [7]  = "#E5E9F0", */
-        /* [8]  = "#4C566A", */
-        /* [9]  = "#BF616A", */
-        /* [10] = "#A3BE8C", */
-        /* [11] = "#EBCB8B", */
-        /* [12] = "#81A1C1", */
-        /* [13] = "#B48EAD", */
-        /* [14] = "#8FBCBB", */
-        /* [15] = "#ECEFF4", */
-		/* [256] = "#2E3440", */
-		/* [257] = "#D8DEE9", */
+	/* /1* nord *1/ */
+    /* [0]  = "#3B4252", */
+    /* [1]  = "#BF616A", */
+    /* [2]  = "#A3BE8C", */
+    /* [3]  = "#EBCB8B", */
+    /* [4]  = "#81A1C1", */
+    /* [5]  = "#B48EAD", */
+    /* [6]  = "#88C0D0", */
+    /* [7]  = "#E5E9F0", */
+    /* [8]  = "#4C566A", */
+    /* [9]  = "#BF616A", */
+    /* [10] = "#A3BE8C", */
+    /* [11] = "#EBCB8B", */
+    /* [12] = "#81A1C1", */
+    /* [13] = "#B48EAD", */
+    /* [14] = "#8FBCBB", */
+    /* [15] = "#ECEFF4", */
+	/* [255] = 0, */
+	/* [256] = "#2E3440", */
+	/* [257] = "#D8DEE9", */
 
-		/* /1* solarized *1/ */
-        /* [0]  = "#002b36", */
-        /* [1]  = "#dc322f", */
-        /* [2]  = "#859900", */
-        /* [3]  = "#b58900", */
-        /* [4]  = "#268bd2", */
-        /* [5]  = "#6c71c4", */
-        /* [6]  = "#2aa198", */
-        /* [7]  = "#93a1a1", */
-        /* [8]  = "#657b83", */
-        /* [9]  = "#dc322f", */
-        /* [10] = "#859900", */
-        /* [11] = "#b58900", */
-        /* [12] = "#268bd2", */
-        /* [13] = "#6c71c4", */
-        /* [14] = "#2aa198", */
-        /* [15] = "#fdf6e3", */
-		/* [256] = "#002b36", */
-		/* [257] = "#93a1a1", */
+	/* /1* solarized *1/ */
+    /* [0]  = "#002b36", */
+    /* [1]  = "#dc322f", */
+    /* [2]  = "#859900", */
+    /* [3]  = "#b58900", */
+    /* [4]  = "#268bd2", */
+    /* [5]  = "#6c71c4", */
+    /* [6]  = "#2aa198", */
+    /* [7]  = "#93a1a1", */
+    /* [8]  = "#657b83", */
+    /* [9]  = "#dc322f", */
+    /* [10] = "#859900", */
+    /* [11] = "#b58900", */
+    /* [12] = "#268bd2", */
+    /* [13] = "#6c71c4", */
+    /* [14] = "#2aa198", */
+    /* [15] = "#fdf6e3", */
+	/* [256] = "#002b36", */
+	/* [257] = "#93a1a1", */
 
-		/* Gruvbox */
-        /* [0]  = "#282828", */
-        /* [1]  = "#cc241d", */
-        /* [2]  = "#98971a", */
-        /* [3]  = "#d79921", */
-        /* [4]  = "#458588", */
-        /* [5]  = "#b16286", */
-        /* [6]  = "#689d6a", */
-        /* [7]  = "#a89984", */
-        /* [8]  = "#928374", */
-        /* [9]  = "#fb4934", */
-        /* [10] = "#b8bb26", */
-        /* [11] = "#fabd2f", */
-        /* [12] = "#83a598", */
-        /* [13] = "#d3869b", */
-        /* [14] = "#8ec07c", */
-        /* [15] = "#ebdbb2", */
-		/* [256] = "#282828", */
-		/* [257] = "#ebdbb2", */
+	/* Gruvbox */
+    /* [0]  = "#282828", */
+    /* [1]  = "#cc241d", */
+    /* [2]  = "#98971a", */
+    /* [3]  = "#d79921", */
+    /* [4]  = "#458588", */
+    /* [5]  = "#b16286", */
+    /* [6]  = "#689d6a", */
+    /* [7]  = "#a89984", */
+    /* [8]  = "#928374", */
+    /* [9]  = "#fb4934", */
+    /* [10] = "#b8bb26", */
+    /* [11] = "#fabd2f", */
+    /* [12] = "#83a598", */
+    /* [13] = "#d3869b", */
+    /* [14] = "#8ec07c", */
+    /* [15] = "#ebdbb2", */
+	/* [256] = "#282828", */
+	/* [257] = "#ebdbb2", */
 
-		/* Google Dark */
-		[0]   = "#1d1f21",
-		[1]   = "#cc342b",
-		[2]   = "#198844",
-		[3]   = "#fba922",
-		[4]   = "#3971ed",
-		[5]   = "#a36ac7",
-		[6]   = "#00ccff",
-		[7]   = "#c5c8c6",
-		[8]   = "#333333",
-		[9]   = "#cc342b",
-		[10]  = "#198844",
-		[11]  = "#fba922",
-		[12]  = "#3971ed",
-		[13]  = "#a36ac7",
-		[14]  = "#00ccff",
-		[15]  = "#ffffff",
-		[256] = "#1d1f21",
-		[257] = "#c5c8c6",
+	/* /1* Dracula *1/ */
+    /* [0]  = "#282c34", */
+    /* [1]  = "#FF5555", */
+    /* [2]  = "#50FA7B", */
+    /* [3]  = "#F1FA8C", */
+    /* [4]  = "#BD93F9", */
+    /* [5]  = "#FF79C6", */
+    /* [6]  = "#8BE9FD", */
+    /* [7]  = "#BFBFBF", */
+    /* [8]  = "#484848", */
+    /* [9]  = "#FF6E67", */
+    /* [10] = "#5AF78E", */
+    /* [11] = "#F4F99D", */
+    /* [12] = "#CAA9FA", */
+    /* [13] = "#FF92D0", */
+    /* [14] = "#9AEDFE", */
+    /* [15] = "#E6E6E6", */
+    /* [256] = "#282A36", */
+    /* [257] = "#eeeeee", */
 
-		/* Dracula */
-        /* [0]  = "#282c34", */
-        /* [1]  = "#FF5555", */
-        /* [2]  = "#50FA7B", */
-        /* [3]  = "#F1FA8C", */
-        /* [4]  = "#BD93F9", */
-        /* [5]  = "#FF79C6", */
-        /* [6]  = "#8BE9FD", */
-        /* [7]  = "#BFBFBF", */
-        /* [8]  = "#484848", */
-        /* [9]  = "#FF6E67", */
-        /* [10] = "#5AF78E", */
-        /* [11] = "#F4F99D", */
-        /* [12] = "#CAA9FA", */
-        /* [13] = "#FF92D0", */
-        /* [14] = "#9AEDFE", */
-        /* [15] = "#E6E6E6", */
-        /* [256] = "#282A36", */
-        /* [257] = "#eeeeee", */
 
+	/* /1* 8 normal colors *1/ */
+	/* "black", */
+	/* "red3", */
+	/* "green3", */
+	/* "yellow3", */
+	/* "blue2", */
+	/* "magenta3", */
+	/* "cyan3", */
+	/* "gray90", */
+	/* /1* 8 bright colors *1/ */
+	/* "gray50", */
+	/* "red", */
+	/* "green", */
+	/* "yellow", */
+	/* "#5c5cff", */
+	/* "magenta", */
+	/* "cyan", */
+	/* "white", */
+
+	/* Google Dark */
+	[0]   = "#1d1f21",
+	[1]   = "#cc342b",
+	[2]   = "#198844",
+	[3]   = "#fba922",
+	[4]   = "#3971ed",
+	[5]   = "#a36ac7",
+	[6]   = "#00ccff",
+	[7]   = "#c5c8c6",
+	[8]   = "#333333",
+	[9]   = "#cc342b",
+	[10]  = "#198844",
+	[11]  = "#fba922",
+	[12]  = "#3971ed",
+	[13]  = "#a36ac7",
+	[14]  = "#00ccff",
+	[15]  = "#ffffff",
+
+
+	[255] = 0,
+	[256] = "#c5c8c6",
+	[257] = "#555555", /* 257 -> rev cursor*/
+	[258] = "#add8e6", /* 258 -> cursor */
+
+	/* more colors can be added after 255 to use with DefaultXX */
+	/* "#cccccc", */
+	/* "#555555", */
 };
+
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor
+ * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultbg = 256;
-unsigned int defaultfg = 257;
-static unsigned int defaultcs = 7;
-static unsigned int defaultrcs = 7;
+unsigned int defaultfg = 7;
+unsigned int defaultbg = 0;
+static unsigned int defaultcs = 258;
+static unsigned int defaultrcs = 257;
 
-/*
- * Colors used, when the specific fg == defaultfg. So in reverse mode this
- * will reverse too. Another logic would only make the simple feature too
- * complex.
- */
-unsigned int defaultitalic = 7;
-unsigned int defaultunderline = 7;
 /*
  * Default shape of cursor
  * 2: Block ("█")
@@ -233,13 +257,21 @@ static unsigned int mousebg = 0;
 static unsigned int defaultattr = 11;
 
 /*
+ * Force mouse select/shortcuts while mask is active (when MODE_MOUSE is set).
+ * Note that if you want to use ShiftMask with selmasks, set this to an other
+ * modifier, set to 0 to not use it.
+ */
+static uint forcemousemod = ShiftMask;
+
+/*
  * Internal mouse shortcuts.
  * Beware that overloading Button1 will disable the selection.
  */
 static MouseShortcut mshortcuts[] = {
-	/* button               mask            string */
-	{ Button4,              XK_ANY_MOD,     "\031" },
-	{ Button5,              XK_ANY_MOD,     "\005" },
+	/* mask                 button   function        argument       release */
+	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
+	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
+	{ XK_ANY_MOD,           Button5, ttysend,        {.s = "\005"} },
 };
 
 /* Internal keyboard shortcuts. */
@@ -258,13 +290,12 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
+	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i =  1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i =  1} },
 	{ MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-        { TERMMOD,              XK_Return,      newterm,        {.i =  0} },
 };
 
 /*
@@ -282,10 +313,6 @@ static Shortcut shortcuts[] = {
  * * 0: no value
  * * > 0: cursor application mode enabled
  * * < 0: cursor application mode disabled
- * crlf value
- * * 0: no value
- * * > 0: crlf mode is enabled
- * * < 0: crlf mode is disabled
  *
  * Be careful with the order of the definitions because st searches in
  * this table sequentially, so any XK_ANY_MOD must be in the last
@@ -303,13 +330,6 @@ static KeySym mappedkeys[] = { -1 };
  * numlock (Mod2Mask) and keyboard layout (XK_SWITCH_MOD) are ignored.
  */
 static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
-
-/*
- * Override mouse-select while mask is active (when MODE_MOUSE is set).
- * Note that if you want to use ShiftMask with selmasks, set this to an other
- * modifier, set to 0 to not use it.
- */
-static uint forceselmod = ShiftMask;
 
 /*
  * This is the huge key array which defines all compatibility to the Linux
