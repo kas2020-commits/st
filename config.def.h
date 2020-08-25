@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrains Mono:pixelsize=16:antialias=true:autohint=true";
-static int borderpx = 2;
+static char *font = "JetBrains Mono:pixelsize=18:antialias=true:autohint=true";
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -117,27 +117,27 @@ static const char *colorname[] = {
 	/* [256] = "#2E3440", */
 	/* [257] = "#D8DEE9", */
 
-	/* /1* solarized *1/ */
-    /* [0]  = "#002b36", */
-    /* [1]  = "#dc322f", */
-    /* [2]  = "#859900", */
-    /* [3]  = "#b58900", */
-    /* [4]  = "#268bd2", */
-    /* [5]  = "#6c71c4", */
-    /* [6]  = "#2aa198", */
-    /* [7]  = "#93a1a1", */
-    /* [8]  = "#657b83", */
-    /* [9]  = "#dc322f", */
-    /* [10] = "#859900", */
-    /* [11] = "#b58900", */
-    /* [12] = "#268bd2", */
-    /* [13] = "#6c71c4", */
-    /* [14] = "#2aa198", */
-    /* [15] = "#fdf6e3", */
-	/* [256] = "#002b36", */
-	/* [257] = "#93a1a1", */
+	/* solarized */
+    [0]  = "#002b36",
+    [1]  = "#dc322f",
+    [2]  = "#859900",
+    [3]  = "#b58900",
+    [4]  = "#268bd2",
+    [5]  = "#6c71c4",
+    [6]  = "#2aa198",
+    [7]  = "#93a1a1",
+    [8]  = "#657b83",
+    [9]  = "#dc322f",
+    [10] = "#859900",
+    [11] = "#b58900",
+    [12] = "#268bd2",
+    [13] = "#6c71c4",
+    [14] = "#2aa198",
+    [15] = "#fdf6e3",
+	[256] = "#002b36",
+	[257] = "#93a1a1",
 
-	/* Gruvbox */
+	/* // Gruvbox */
     /* [0]  = "#282828", */
     /* [1]  = "#cc241d", */
     /* [2]  = "#98971a", */
@@ -165,7 +165,8 @@ static const char *colorname[] = {
     /* [4]  = "#BD93F9", */
     /* [5]  = "#FF79C6", */
     /* [6]  = "#8BE9FD", */
-    /* [7]  = "#BFBFBF", */
+    /* /1* [7]  = "#BFBFBF", *1/ */
+	/* [7]  = "#F8F8F2", */
     /* [8]  = "#484848", */
     /* [9]  = "#FF6E67", */
     /* [10] = "#5AF78E", */
@@ -197,28 +198,28 @@ static const char *colorname[] = {
 	/* "cyan", */
 	/* "white", */
 
-	/* Google Dark */
-	[0]   = "#1d1f21",
-	[1]   = "#cc342b",
-	[2]   = "#198844",
-	[3]   = "#fba922",
-	[4]   = "#3971ed",
-	[5]   = "#a36ac7",
-	[6]   = "#00ccff",
-	[7]   = "#c5c8c6",
-	[8]   = "#333333",
-	[9]   = "#cc342b",
-	[10]  = "#198844",
-	[11]  = "#fba922",
-	[12]  = "#3971ed",
-	[13]  = "#a36ac7",
-	[14]  = "#00ccff",
-	[15]  = "#ffffff",
+	/* /1* Google Dark *1/ */
+	/* [0]   = "#1d1f21", */
+	/* [1]   = "#cc342b", */
+	/* [2]   = "#198844", */
+	/* [3]   = "#fba922", */
+	/* [4]   = "#3971ed", */
+	/* [5]   = "#a36ac7", */
+	/* [6]   = "#00ccff", */
+	/* [7]   = "#c5c8c6", */
+	/* [8]   = "#333333", */
+	/* [9]   = "#cc342b", */
+	/* [10]  = "#198844", */
+	/* [11]  = "#fba922", */
+	/* [12]  = "#3971ed", */
+	/* [13]  = "#a36ac7", */
+	/* [14]  = "#00ccff", */
+	/* [15]  = "#ffffff", */
 
 
 	[255] = 0,
-	[256] = "#c5c8c6",
-	[257] = "#555555", /* 257 -> rev cursor*/
+	/* [256] = "#c5c8c6", */
+	/* [257] = "#555555", // 257 -> rev cursor */
 	[258] = "#add8e6", /* 258 -> cursor */
 
 	/* more colors can be added after 255 to use with DefaultXX */
@@ -244,7 +245,7 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 4;
 
 /*
  * Default columns and rows numbers

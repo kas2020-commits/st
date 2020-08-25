@@ -3,6 +3,9 @@ VERSION = 0.8.4
 
 # Customize below to fit your system
 
+CC = clang
+CFLAGS = -Ofast
+
 # paths
 PREFIX = /usr/local
 MANPREFIX = $(PREFIX)/share/man
