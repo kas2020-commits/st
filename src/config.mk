@@ -4,7 +4,7 @@ VERSION = 0.8.4
 # Customize below to fit your system
 
 CC = clang
-CFLAGS = -Ofast
+CFLAGS = -O3
 
 # paths
 PREFIX = /usr/local
