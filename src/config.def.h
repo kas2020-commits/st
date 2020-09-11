@@ -66,7 +66,7 @@ static unsigned int blinktimeout = 0;
 /*
  * thickness of underline and bar cursors
  */
-static unsigned int cursorthickness = 4;
+static unsigned int cursorthickness = 2;
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -177,60 +177,60 @@ static const char *colorname[] =
 
 	// default
 
-	/* "black", */
-	/* "red3", */
-	/* "green3", */
-	/* "yellow3", */
-	/* "blue2", */
-	/* "magenta3", */
-	/* "cyan3", */
-	/* "gray90", */
-	/* "gray50", */
-	/* "red", */
-	/* "green", */
-	/* "yellow", */
-	/* "#5c5cff", */
-	/* "magenta", */
-	/* "cyan", */
-	/* "white", */
+	"black",
+	"red3",
+	"green3",
+	"yellow3",
+	"#3971ed",
+	"magenta3",
+	"#00ccff",
+	"gray90",
+	"gray50",
+	"red3",
+	"green3",
+	"yellow3",
+	"#3971ed",
+	"magenta3",
+	"#00ccff",
+	"white",
 
 	// Google Dark
 
-	/* [0]   = "#1d1f21", */
-	/* [1]   = "#cc342b", */
-	/* [2]   = "#198844", */
-	/* [3]   = "#fba922", */
-	/* [4]   = "#3971ed", */
-	/* [5]   = "#a36ac7", */
-	/* [6]   = "#00ccff", */
-	/* [7]   = "#c5c8c6", */
-	/* [8]   = "#333333", */
-	/* [9]   = "#cc342b", */
-	/* [10]  = "#198844", */
-	/* [11]  = "#fba922", */
-	/* [12]  = "#3971ed", */
-	/* [13]  = "#a36ac7", */
-	/* [14]  = "#00ccff", */
-	/* [15]  = "#ffffff", */
+	/* [0]  = "#1d1f21", */
+	/* [1]  = "#cc342b", */
+	/* [2]  = "#198844", */
+	/* [3]  = "#fba922", */
+	/* [4]  = "#3971ed", */
+	/* [5]  = "#a36ac7", */
+	/* [6]  = "#00ccff", */
+	/* [7]  = "#c5c8c6", */
+	/* [8]  = "#333333", */
+	/* [9]  = "#cc342b", */
+	/* [10] = "#198844", */
+	/* [11] = "#fba922", */
+	/* [12] = "#3971ed", */
+	/* [13] = "#a36ac7", */
+	/* [14] = "#00ccff", */
+	/* [15] = "#ffffff", */
 
 	// Color Scheme: PowerShellTom
 
-	[0] = "#111111",
-	[1] = "#FF6600",
-	[2] = "#00dd00",
-	[3] = "#FFD93D",
-	[4] = "#0000dd",
-	[5] = "#9933CC",
-	[6] = "#19D1D8",
-	[7] = "#F5F5F5",
-	[8] = "#AAAAAA",
-	[9] = "#FF0000",
-	[10] = "#81EC0D",
-	[11] = "#FFD93D",
-	[12] = "#44B4CC",
-	[13] = "#FF00FF",
-	[14] = "#19D1D8",
-	[15] = "#E5E5E5",
+	/* [0] = "#111111", */
+	/* [1] = "#FF6600", */
+	/* [2] = "#00dd00", */
+	/* [3] = "#FFD93D", */
+	/* [4] = "#0000dd", */
+	/* [5] = "#9933CC", */
+	/* [6] = "#19D1D8", */
+	/* [7] = "#F5F5F5", */
+	/* [8] = "#AAAAAA", */
+	/* [9] = "#FF0000", */
+	/* [10] = "#81EC0D", */
+	/* [11] = "#FFD93D", */
+	/* [12] = "#44B4CC", */
+	/* [13] = "#FF00FF", */
+	/* [14] = "#19D1D8", */
+	/* [15] = "#E5E5E5", */
 
 	// Color Scheme: VibrantTom
 
@@ -252,10 +252,13 @@ static const char *colorname[] =
 	/* [15] = "#E5E5E5", */
 
 	[255] = 0,
-	[256] = "#DDDDDD", // 256 -> foreground
-	[257] = "#00204d", // 257 -> background
-	/* 012456 */
+	/* [256] = "#DDDDDD", // 256 -> foreground */
+	/* [257] = "#00204d", // 257 -> background */
 	/* [257] = "#16171D", */
+
+	[256] = "#00bb00",
+	[257] = "#0a0a0a",
+
 	[258] = "#add8e6", // 258 -> cursor
 	[259] = "#555555", // 257 -> rev cursor
 };
@@ -277,7 +280,7 @@ static unsigned int defaultrcs = 259;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 4;
+static unsigned int cursorshape = 2;
 
 /*
  * Default columns and rows numbers
