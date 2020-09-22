@@ -5,8 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-/* static char *font = "JetBrains Mono:pixelsize=19:antialias=true:autohint=true"; */
-static char *font = "Fira Code:style=Medium:size=13:antialias=true:autohint=true";
+/* static char *font = "JetBrains Mono:pixelsize=16:antialias=true:autohint=true"; */
+static char *font = "Fira Code:style=Medium:size=14:antialias=true:autohint=true";
+/* static char *font = "DejaVu Sans Mono:size=15:antialias=true:autohint=true"; */
 static int borderpx = 0;
 
 /*
@@ -95,27 +96,7 @@ char *termname = "st";
 unsigned int tabspaces = 4;
 
 /* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] =
-{
-	// nord
-
-	/* [0]  = "#3B4252", */
-	/* [1]  = "#BF616A", */
-	/* [2]  = "#A3BE8C", */
-	/* [3]  = "#EBCB8B", */
-	/* [4]  = "#81A1C1", */
-	/* [5]  = "#B48EAD", */
-	/* [6]  = "#88C0D0", */
-	/* [7]  = "#E5E9F0", */
-	/* [8]  = "#4C566A", */
-	/* [9]  = "#BF616A", */
-	/* [10] = "#A3BE8C", */
-	/* [11] = "#EBCB8B", */
-	/* [12] = "#81A1C1", */
-	/* [13] = "#B48EAD", */
-	/* [14] = "#8FBCBB", */
-	/* [15] = "#ECEFF4", */
-
+static const char *colorname[] = {
 	// solarized
 
 	/* [0]  = "#002b36", */
@@ -137,33 +118,32 @@ static const char *colorname[] =
 
 	// Gruvbox
 
-	/* [0]  = "#1d2021", */
-	/* [1]  = "#cc241d", */
-	/* [2]  = "#98971a", */
-	/* [3]  = "#d79921", */
-	/* [4]  = "#458588", */
-	/* [5]  = "#b16286", */
-	/* [6]  = "#689d6a", */
-	/* [7]  = "#a89984", */
-	/* [8]  = "#928374", */
-	/* [9]  = "#fb4934", */
-	/* [10] = "#b8bb26", */
-	/* [11] = "#fabd2f", */
-	/* [12] = "#83a598", */
-	/* [13] = "#d3869b", */
-	/* [14] = "#8ec07c", */
-	/* [15] = "#ebdbb2", */
+	[0]  = "#1d2021",
+	[1]  = "#cc241d",
+	[2]  = "#98971a",
+	[3]  = "#d79921",
+	[4]  = "#458588",
+	[5]  = "#b16286",
+	[6]  = "#689d6a",
+	[7]  = "#a89984",
+	[8]  = "#928374",
+	[9]  = "#fb4934",
+	[10] = "#b8bb26",
+	[11] = "#fabd2f",
+	[12] = "#83a598",
+	[13] = "#d3869b",
+	[14] = "#8ec07c",
+	[15] = "#ebdbb2",
 
 	// Dracula
 
-	/* [0]  = "#282c34", */
+	/* [0]  = "#282a36", */
 	/* [1]  = "#FF5555", */
 	/* [2]  = "#50FA7B", */
 	/* [3]  = "#F1FA8C", */
 	/* [4]  = "#BD93F9", */
 	/* [5]  = "#FF79C6", */
 	/* [6]  = "#8BE9FD", */
-	/* [7]  = "#BFBFBF", */
 	/* [7]  = "#F8F8F2", */
 	/* [8]  = "#484848", */
 	/* [9]  = "#FF6E67", */
@@ -196,22 +176,22 @@ static const char *colorname[] =
 
 	// Blossom
 
-	[0]  = "#445158",
-	[1]  = "#FF6565",
-	[2]  = "#2CC46E",
-	[3]  = "#ECC46F",
-	[4]  = "#6F97EC",
-	[5]  = "#FA5477",
-	[6]  = "#64B9F2",
-	[7]  = "#D2D2D4",
-	[8]  = "#5E6B72",
-	[9]  = "#FF7272",
-	[10] = "#46DE88",
-	[11] = "#FFDE89",
-	[12] = "#89B1FF",
-	[13] = "#FF6E91",
-	[14] = "#71C6FF",
-	[15] = "#F1F1F3",
+	/* [0]  = "#445158", */
+	/* [1]  = "#FF6565", */
+	/* [2]  = "#2CC46E", */
+	/* [3]  = "#ECC46F", */
+	/* [4]  = "#6F97EC", */
+	/* [5]  = "#FA5477", */
+	/* [6]  = "#64B9F2", */
+	/* [7]  = "#D2D2D4", */
+	/* [8]  = "#5E6B72", */
+	/* [9]  = "#FF7272", */
+	/* [10] = "#46DE88", */
+	/* [11] = "#FFDE89", */
+	/* [12] = "#89B1FF", */
+	/* [13] = "#FF6E91", */
+	/* [14] = "#71C6FF", */
+	/* [15] = "#F1F1F3", */
 
 	// Google Dark
 
@@ -251,38 +231,34 @@ static const char *colorname[] =
 	/* [14] = "#19D1D8", */
 	/* [15] = "#E5E5E5", */
 
-	// Color Scheme: VibrantTom
-
-	/* [0] = "#878787", */
-	/* [1] = "#FF6600", */
-	/* [2] = "#CCFF04", */
-	/* [3] = "#FFD93D", */
-	/* [4] = "#44B4CC", */
-	/* [5] = "#9933CC", */
-	/* [6] = "#19D1D8", */
-	/* [7] = "#F5F5F5", */
-	/* [8] = "#E373C8", */
-	/* [9] = "#FF0000", */
-	/* [10] = "#81EC0D", */
-	/* [11] = "#FFD93D", */
-	/* [12] = "#0000FF", */
-	/* [13] = "#FF00FF", */
-	/* [14] = "#19D1D8", */
-	/* [15] = "#E5E5E5", */
-
 	[255] = 0,
+
+	// Gruvbox
+
+	[256] = "#ebdbb2",
+	[257] = "#1d2021",
+
+	// Dracula
+
+	/* [256] = "#f8f8f2", */
+	/* [257] = "#282a36", */
+
+	// PowerShell
 
 	/* [256] = "#DDDDDD", // 256 -> foreground */
 	/* [257] = "#00204d", // 257 -> background */
 
+	// Google Dark
+
 	/* [256] = "#00bb00", */
 	/* [257] = "#0a0a0a", */
 
-	[256] = "#F2F2F4",
-	[257] =	"#22272C",
+	// Blossom
 
-	[258] =	"#F2F2F4",
-	/* [258] = "#add8e6", // 258 -> cursor */
+	/* [256] = "#F2F2F4", */
+	/* [257] =	"#22272C", */
+
+	[258] =	"#F2F2F4", // 258 -> cursor
 	[259] = "#555555", // 259 -> rev cursor
 };
 
