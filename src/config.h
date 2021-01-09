@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-/* static char *font = "JetBrains Mono:pixelsize=16:antialias=true:autohint=true"; */
-static char *font = "Fira Code:style=Medium:size=14:antialias=true:autohint=true";
+static char *font = "JetBrains Mono:style=Medium:size=15:antialias=true:autohint=true";
+/* static char *font = "Fira Code:style=medium:pixelsize=19:antialias=true:autohint=true"; */
 /* static char *font = "DejaVu Sans Mono:size=15:antialias=true:autohint=true"; */
 static int borderpx = 0;
 
@@ -118,22 +118,22 @@ static const char *colorname[] = {
 
 	// Gruvbox
 
-	[0]  = "#1d2021",
-	[1]  = "#cc241d",
-	[2]  = "#98971a",
-	[3]  = "#d79921",
-	[4]  = "#458588",
-	[5]  = "#b16286",
-	[6]  = "#689d6a",
-	[7]  = "#a89984",
-	[8]  = "#928374",
-	[9]  = "#fb4934",
-	[10] = "#b8bb26",
-	[11] = "#fabd2f",
-	[12] = "#83a598",
-	[13] = "#d3869b",
-	[14] = "#8ec07c",
-	[15] = "#ebdbb2",
+	/* [0]  = "#1d2021", */
+	/* [1]  = "#cc241d", */
+	/* [2]  = "#98971a", */
+	/* [3]  = "#d79921", */
+	/* [4]  = "#458588", */
+	/* [5]  = "#b16286", */
+	/* [6]  = "#689d6a", */
+	/* [7]  = "#a89984", */
+	/* [8]  = "#928374", */
+	/* [9]  = "#fb4934", */
+	/* [10] = "#b8bb26", */
+	/* [11] = "#fabd2f", */
+	/* [12] = "#83a598", */
+	/* [13] = "#d3869b", */
+	/* [14] = "#8ec07c", */
+	/* [15] = "#ebdbb2", */
 
 	// Dracula
 
@@ -212,6 +212,23 @@ static const char *colorname[] = {
 	/* [14] = "#00ccff", */
 	/* [15] = "#ffffff", */
 
+	[0]   = "#1d1f21",
+	[1]   = "#cc342b",
+	[2]   = "#198844",
+	[3]   = "#fba922",
+	[4]   = "#3971ed",
+	[5]   = "#a36ac7",
+	[6]   = "#00ccff",
+	[7]   = "#c5c8c6",
+	[8]   = "#333333",
+	[9]   = "#cc342b",
+	[10]  = "#198844",
+	[11]  = "#fba922",
+	[12]  = "#3971ed",
+	[13]  = "#a36ac7",
+	[14]  = "#00ccff",
+	[15]  = "#ffffff",
+
 	// Color Scheme: PowerShellTom
 
 	/* [0] = "#111111", */
@@ -235,8 +252,8 @@ static const char *colorname[] = {
 
 	// Gruvbox
 
-	[256] = "#ebdbb2",
-	[257] = "#1d2021",
+	/* [256] = "#ebdbb2", */
+	/* [257] = "#1d2021", */
 
 	// Dracula
 
@@ -250,8 +267,8 @@ static const char *colorname[] = {
 
 	// Google Dark
 
-	/* [256] = "#00bb00", */
-	/* [257] = "#0a0a0a", */
+	[256] = "#c5c8c6",
+	[257] = "#1d1f21",
 
 	// Blossom
 
@@ -326,23 +343,25 @@ static MouseShortcut mshortcuts[] = {
 #define TERMMOD (ControlMask|ShiftMask)
 
 static Shortcut shortcuts[] = {
-	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i =  1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i =  1} },
-	{ MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
+	/* mask            keysym          function        argument */
+	{ XK_ANY_MOD,      XK_Break,       sendbreak,      {.i =  0} },
+	{ ControlMask,     XK_Print,       toggleprinter,  {.i =  0} },
+	{ ShiftMask,       XK_Print,       printscreen,    {.i =  0} },
+	{ XK_ANY_MOD,      XK_Print,       printsel,       {.i =  0} },
+	{ TERMMOD,         XK_Prior,       zoom,           {.f = +1} },
+	{ TERMMOD,         XK_Next,        zoom,           {.f = -1} },
+	{ TERMMOD,         XK_Home,        zoomreset,      {.f =  0} },
+	{ TERMMOD,         XK_C,           clipcopy,       {.i =  0} },
+	{ TERMMOD,         XK_V,           clippaste,      {.i =  0} },
+	{ TERMMOD,         XK_Y,           selpaste,       {.i =  0} },
+	{ ShiftMask,       XK_Insert,      selpaste,       {.i =  0} },
+	{ TERMMOD,         XK_Num_Lock,    numlock,        {.i =  0} },
+	{ ShiftMask,       XK_Page_Up,     kscrollup,      {.i =  1} },
+	{ ShiftMask,       XK_Page_Down,   kscrolldown,    {.i =  1} },
+	{ MODKEY,          XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ MODKEY,          XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ TERMMOD,         XK_K,           kscrollup,      {.i =  1} },
+	{ TERMMOD,         XK_J,           kscrolldown,    {.i =  1} },
 };
 
 /*
